@@ -23,11 +23,11 @@ public class Bugs {
 
 	}
 
-	// Parameterized Constructor
-	public Bugs(int id, String title, String description, int projectId, int createdBy, Date openDate,
+	// Parameterized Constructor for adding
+	public Bugs(String title, String description, int projectId, int createdBy, Date openDate,
 			String severityLevel) {
 		super();
-		this.id = id;
+		this.id = 0;
 		this.title = title;
 		this.description = description;
 		this.projectId = projectId;
@@ -39,6 +39,24 @@ public class Bugs {
 		this.assignedTo = 0;
 		this.closedBy = 0;
 		this.closedOn = null;
+	}
+
+	//
+	public Bugs(int id, String title, String description, int projectId, int createdBy, Date openDate, int assignedTo,
+			Boolean markedForClosing, int closedBy, Date closedOn, String status, String severityLevel) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.description = description;
+		this.projectId = projectId;
+		this.createdBy = createdBy;
+		this.openDate = openDate;
+		this.assignedTo = assignedTo;
+		this.markedForClosing = markedForClosing;
+		this.closedBy = closedBy;
+		this.closedOn = closedOn;
+		this.status = status;
+		this.severityLevel = severityLevel;
 	}
 
 	// Getters and Setters

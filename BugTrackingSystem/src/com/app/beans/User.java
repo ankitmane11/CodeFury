@@ -13,7 +13,7 @@ public class User {
 		super();
 	}
 
-	//Parameterized Constructor
+	//Parameterized Constructor for Storing
 	public User(String name, String type, String email) {
 		super();
 		this.name = name;
@@ -23,6 +23,16 @@ public class User {
 		this.password = null;
 	}
 	
+	//Parameterized Constructor for Retrieval
+	public User(int id, String name, String type, String email, String password) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.type = type;
+		this.email = email;
+		this.password = password;
+	}
+
 	//Getters and Setters
 	public int getId() {
 		return id;
