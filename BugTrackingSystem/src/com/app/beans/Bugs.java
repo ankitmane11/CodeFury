@@ -24,10 +24,10 @@ public class Bugs {
 	}
 
 	// Parameterized Constructor
-	public Bugs(int id, String title, String description, int projectId, int createdBy, Date openDate,
+	public Bugs( String title, String description, int projectId, int createdBy, Date openDate,
 			String severityLevel) {
-		super();
-		this.id = id;
+		
+		this.id = 0;
 		this.title = title;
 		this.description = description;
 		this.projectId = projectId;
