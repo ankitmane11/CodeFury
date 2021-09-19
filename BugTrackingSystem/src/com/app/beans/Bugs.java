@@ -36,6 +36,9 @@ public class Bugs {
 		this.severityLevel = severityLevel;
 		this.markedForClosing = false;
 		this.status = "open";
+		this.assignedTo = 0;
+		this.closedBy = 0;
+		this.closedOn = null;
 	}
 
 	// Getters and Setters
