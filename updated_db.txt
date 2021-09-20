@@ -1,0 +1,66 @@
+ show database;
+
+ DROP DATABASE codefury_db;
+
+SHOW TABLES FROM codefury_db;
+
+CREATE DATABASE codefury_db;
+
+USE codefury_db;
+
+SHOW TABLES FROM codefury_db;
+
+CREATE TABLE User(
+    -> User_ID INT,
+    -> name VARCHAR(255) NOT NULL,
+    -> type VARCHAR(255) NOT NULL,
+    -> email VARCHAR(255) NOT NULL,
+    -> password VARCHAR(255) NOT NULL,
+    -> PRIMARY KEY(email));
+
+ SHOW COLUMNS FROM User;
+
+CREATE TABLE Project(
+    -> Project_ID INT NOT NULL,
+    -> name VARCHAR(255) NOT NULL,
+    -> description LONGTEXT,
+    -> startDate DATE,
+    -> status VARCHAR(255),
+    -> teamMembers LONGTEXT,
+    -> PRIMARY KEY(Project_ID));
+
+SHOW COLUMNS FROM Project;
+
+CREATE TABLE Bugs(
+    -> Bug_ID INT NOT NULL,
+    -> title VARCHAR(255) NOT NULL,
+    -> description LONGTEXT,
+    ->  Project_ID INT NOT NULL,
+    -> createdBy INT,
+    -> openDate DATE,
+    -> assignedTo INT,
+    -> markedForClosing BOOLEAN NOT NULL,
+    -> closedBy INT,
+    -> closedOn DATE,
+    -> status VARCHAR(255),
+    -> severityLevel VARCHAR(255),
+    -> PRIMARY KEY(Bug_ID),
+    -> FOREIGN KEY(Project_ID) REFERENCES Project(Project_ID));
+
+SHOW COLUMNS FROM Bugs;
++------------------+--------------+------+-----+---------+-------+
+| Field            | Type         | Null | Key | Default | Extra |
++------------------+--------------+------+-----+---------+-------+
+| Bug_ID           | int          | NO   | PRI | NULL    |       |
+| title            | varchar(255) | NO   |     | NULL    |       |
+| description      | longtext     | YES  |     | NULL    |       |
+| Project_ID       | int          | NO   | MUL | NULL    |       |
+| createdBy        | int          | YES  |     | NULL    |       |
+| openDate         | date         | YES  |     | NULL    |       |
+| assignedTo       | int          | YES  |     | NULL    |       |
+| markedForClosing | tinyint(1)   | NO   |     | NULL    |       |
+| closedBy         | int          | YES  |     | NULL    |       |
+| closedOn         | date         | YES  |     | NULL    |       |
+| status           | varchar(255) | YES  |     | NULL    |       |
+| severityLevel    | varchar(255) | YES  |     | NULL    |       |
++------------------+--------------+------+-----+---------+-------+
