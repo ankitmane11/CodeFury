@@ -30,7 +30,7 @@ public class TestUser {
 				break;
 			case 2:
 				try {
-					uService.registerUser("pm@domain.com", "ProjectManager", "abcd123");
+					uService.registerUser("xyz@domain.com", "Tester", "abcd123");
 				} catch (Exception e) {
 					System.out.println(e.getMessage());
 				}

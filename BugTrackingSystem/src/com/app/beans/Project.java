@@ -10,13 +10,23 @@ public class Project {
 	private Date startDate;
 	private String status;
 	private String teamMembers;
-	
-	//Default Constructor
+
+	// Default Constructor
 	public Project() {
 		super();
 	}
 
-	//Parameterized Constructor
+	public Project(String name, String description, Date startDate, String status, String teamMembers) {
+		super();
+		this.id = 0;
+		this.name = name;
+		this.description = description;
+		this.startDate = startDate;
+		this.status = status;
+		this.teamMembers = teamMembers;
+	}
+
+	// Parameterized Constructor
 	public Project(int id, String name, String description, Date startDate, String status, String teamMembers) {
 		super();
 		this.id = id;
@@ -27,7 +37,7 @@ public class Project {
 		this.teamMembers = teamMembers;
 	}
 
-	//Getters and Setters
+	// Getters and Setters
 	public int getId() {
 		return id;
 	}
@@ -75,7 +85,11 @@ public class Project {
 	public void setTeamMembers(String teamMembers) {
 		this.teamMembers = teamMembers;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Project [id=" + id + ", name=" + name + ", description=" + description + ", startDate=" + startDate
+				+ ", status=" + status + ", teamMembers=" + teamMembers + "]";
+	}
 
 }
