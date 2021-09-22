@@ -2,9 +2,8 @@ package com.app.dao;
 
 import java.util.List;
 
-import com.app.Exceptions.BugNotAddedException;
-import com.app.Exceptions.BugNotFoundException;
-import com.app.Exceptions.NoBugsFoundException;
+import com.app.exceptions.BugNotAddedException;
+import com.app.exceptions.BugNotFoundException;
 import com.app.beans.Bugs;
 import com.app.beans.Project;
 

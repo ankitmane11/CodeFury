@@ -5,8 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import com.app.Exceptions.BugNotAddedException;
-import com.app.Exceptions.BugNotFoundException;
+import com.app.exceptions.BugNotAddedException;
+import com.app.exceptions.BugNotFoundException;
 import com.app.beans.Bugs;
 
 
