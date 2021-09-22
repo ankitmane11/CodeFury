@@ -23,10 +23,17 @@ public class Bugs {
 
 	}
 
+<<<<<<< HEAD
 	// Parameterized Constructor for adding
 	public Bugs(String title, String description, int projectId, int createdBy, Date openDate,
 			String severityLevel) {
 		super();
+=======
+	// Parameterized Constructor
+	public Bugs( String title, String description, int projectId, int createdBy, Date openDate,
+			String severityLevel) {
+		
+>>>>>>> 63b30ff1ba31db8868414022f1ef82245dce5839
 		this.id = 0;
 		this.title = title;
 		this.description = description;
