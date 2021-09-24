@@ -1,0 +1,34 @@
+[
+	{
+		"name": "ABC",
+		"type": "Developer",
+		"email": "abc@domain.com"
+	},
+	{
+		"name": "XYZ",
+		"type": "Tester",
+		"email": "xyz@domain.com"
+	},
+	{
+		"name": "PM",
+		"type": "ProjectManager",
+		"email": "pm@domain.com"
+	},
+	{ 	
+		"name": "John Doe",
+		"type": "Developer",
+		"email": "johndoe@domain.com"
+	},	
+	
+	{ 	
+		"name": "Matthew Mart",
+		"type": "Project Manager",
+		"email": "mmart@domain.com"
+	},
+	
+	{ 	
+		"name": "Sarah Marshal",
+		"type": "Tester",
+		"email": "sarah20@domain.com"
+	}
+]
