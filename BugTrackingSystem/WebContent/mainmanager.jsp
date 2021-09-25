@@ -43,6 +43,7 @@
 				<li><span><a href="mainmanager.jsp" class="button">Manager
 							Home Page</a></span></li>
 				<li><span><a href="manager.jsp">Home</a></span></li>
+				<li><span ><a href="ProjectList.html">Add Project</a></span></li>
 			</ul>
 
 			<!-- On the line above, remove the class="button" if you don't want the final

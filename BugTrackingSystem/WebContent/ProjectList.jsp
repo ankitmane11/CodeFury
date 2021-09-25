@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,8 +12,9 @@
     
         <!-- This is the style for the header -->
         <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/Loginstyle.css">
+        
         <link rel="stylesheet" href="css/Extrastyle.css">
+        <link rel="stylesheet" href="css/Loginstyle.css">
     
         <!-- This is just a font that we'll be using. You can remove lines 12-14 if you don't want to use Poppins -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +23,23 @@
         <title>Home Page</title>
         
 
-        
+
+<style>
+    
+    form {  
+           
+     
+     
+    
+                   
+     font-family: 'Exo', sans-serif; 
+    border: 4px solid black;
+    
+    }
+</style>
+
+
+
         <script>
             
             function addRow()
@@ -81,12 +97,11 @@
                 <a> is the actual clickable part -->
                 
                   
-                    <li><span><a href="userinfo.html" >User Information</a></span></li>
+                <li><span><a href="userinfo.html" >User Information</a></span></li>
                 <li><span><a href="projectname.html">Project Name</a></span></li>
                 <li><span><a href="mainmanager.html">Manager Home Page</a></span></li>
-                <li><span ><a href="manager.html" class="button">Home</a></span></li>
-                <li><span ><a href="ProjectList.html">Add Project</a></span></li>
-            
+                <li><span ><a href="manager.html" >Home</a></span></li>
+                <li><span ><a href="ProjectList.html" class="button">Add Project</a></span></li>
             
                 
                 <!-- On the line above, remove the class="button" if you don't want the final
@@ -96,63 +111,73 @@
     </header>
     <body>
 
-    <!--
-        <form>
-            <table>
-                
-                <tr>
-                    <td>
-        Project Name: <input type="text" name="pname" id="pname" >
-        </td>
-    </tr>
-    <tr>
-        <td>
-        Start Date: <input type="text" name="startdate" id="startdate" />
-    </td>
-    </tr>
-    <tr>
-        <td>
-        Project Manager: <input type="text" name="pmanager" id="pmanager" />
-    </td>
-    </tr>
-    <tr>
-        <td>
-        Employee name: <input type="text" name="emp" id="emp" />
-    </td>
-    </tr>
-    <tr>
-        <td>
-        Details: <input type="text" name="details" id="details" />
-    </td>
-    </tr>
+        <div class="bg-image">
         
-    </table>
-    </form>
-    <button onclick="addRow();">Add Project</button><br/><br/>
-    </form>
-    -->
-    <div class="bg-image">
-        <table border="10px"style="margin-left:250px; margin-top:150px;">
-            
-            <tr>
-                <th style="padding:10px; font-size:20px ;">Project Name</th>
-                <th style="padding:10px; font-size:20px ;">Start Date</th>
-                <th style="padding:10px; font-size:20px ;">Project Manger</th>
-                <th style="padding:10px; font-size:20px ;">Employee name</th>
-                <th style="padding:10px; font-size:20px ;">Age</th>
-            </tr>
-            <tr>
+        
+                        
+                        
+                        <form name="Project-form" onsubmit="return validateData()">
                 
-                <td id="projectname"style="padding:10px; font-size:40px ;">1 :</td>
-                <td id="startdate" style="padding:10px; font-size:40px;">2</td>
-                <td id="ProjectManger"style="padding:10px; font-size:40px ;">Test Values :</td>
-                <td id="Employeename" style="padding:10px; font-size:40px;">4</td>
-                <td id="Age"style="padding:10px; font-size:40px ;">Test Values :</td>
-                
-         
+                        <div>
+                            <table>
+                                <h3 style="text-align:center">Project Assignemnet</h3>
+                                <tr> 
+                                    <td>
+                                    <label>Project Name:</label>
+                                    </td>
+                                    <td>
+                                    <input type="text" placeholder="Enter ProjectName" name="projectname" required="required"> 
+                                </td>
+                                </tr>
+                               
+                                <tr>
+                                    <td>
+                                    <label>Details:</label>
+                                </td>
+                                <td>
+                                    <input type="text" placeholder="Details" name="details" required="required"> 
+                                </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    <label>Project Manager:</label>
+                                </td>
+                                <td>
+                                    <input type="text" placeholder="Project" name="projectmanager" required="required"> 
+                                </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    <label>Employee Name:</label>
+                                </td>
+                                <td>
+                                    <input type="text" placeholder="EmployeeName" name="employeeName" required="required"> 
+                                </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    <label>Start Date:</label>
+                                </td>
+                                <td>
+                                    <input type="date" placeholder="Enter" name="startdate" required="required"> 
+                                </td>
+                                </tr>
+                                
+                                <tr>
+                                    <br>
+                                    <td style="column-span: all;">
+                                <button type="submit" value="addproject" style="margin-left: 95px;margin-top: 35px;">Add Project</button>
+                            </td>
+                            </tr>
+                            </table>
+                            
+                        </div>
+                    </form>
+                    
+                  
+   
+    </form>
+</div>
 
-        </table>
-    </div>
-    </body>
-
+<body>
 </html>
