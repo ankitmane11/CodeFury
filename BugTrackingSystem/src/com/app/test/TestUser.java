@@ -17,7 +17,8 @@ public class TestUser {
 		List<User> uList = new ArrayList<>();
 		uList.add(new User("ABC", "Tester", "abc@domain.com"));
 		uList.add(new User("EFG", "Developer", "abc@domain.com"));
-		uList.add(new User("XYZ", "Tester", "xyz@domain.com"));
+		uList.add(new User("XYZ", "Developer", "xyz@domain.com"));
+		uList.add(new User("PM", "ProjectManager", "pm@domain.com"));
 		Scanner sc = new Scanner(System.in);
 		int choice = 0;
 		do {
@@ -36,7 +37,7 @@ public class TestUser {
 				break;
 			case 2:
 				try {
-					uService.registerUser("xyz@domain.com", "Tester", "abcd123");
+					uService.registerUser("pm@domain.com", "ProjectManager", "abcd123");
 				} catch (Exception e) {
 					System.out.println(e.getMessage());
 				}

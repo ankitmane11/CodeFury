@@ -1,6 +1,7 @@
 package com.app.service;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.app.beans.Project;
@@ -15,22 +16,17 @@ public class ProjectServiceImpl implements ProjectService {
 		pDao = new ProjectDaoImpl();
 	}
 	@Override
-	public void createProject(String name, String description, Date startDate, String status, List<Integer> team) {
-		String teamMembers = "";
+	public void createProject(String name, String description, LocalDate startDate, String status, List<Integer> team) {
+		List<String> teamMembers = new ArrayList<>();
 		for (int id : team) {
-			teamMembers += pDao.getUserName(id) + ",";
+			teamMembers.add(pDao.getUserName(id));
 		}
-		teamMembers = teamMembers.substring(0, teamMembers.length()-1);
 		pDao.createProject(new Project(name, description, startDate, status, teamMembers), team);
 		
 	}
 	@Override
 	public List<Project> getProjectList(int managerId) {
 		return pDao.getProjectList(managerId);
-	}
-	@Override
-	public void getProjectDetails(int projectId) {
-		
 	}
 
 }
