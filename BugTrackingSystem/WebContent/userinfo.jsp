@@ -39,11 +39,11 @@
             
               
                 <ul>
-				<li><span><a href="userinfo.jsp">User Information</a></span></li>
-				<li><span><a href="projectname.jsp">Project Name</a></span></li>
-				<li><span><a href="mainmanager.jsp" class="button">Manager
-							Home Page</a></span></li>
-				<li><span><a href="manager.jsp">Home</a></span></li>
+				  <li><span><a href="userinfo.html" >User Information</a></span></li>
+                <li><span><a href="projectname.html" class="button">Project Name</a></span></li>
+                <li><span><a href="mainmanager.html">Manager Home Page</a></span></li>
+                <li><span ><a href="manager.html">Home</a></span></li>
+                <li><span ><a href="ProjectList.html" >Add Project</a></span></li>
 			</ul>
             
             
