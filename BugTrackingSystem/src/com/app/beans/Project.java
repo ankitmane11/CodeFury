@@ -1,22 +1,23 @@
 package com.app.beans;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.List;
 
 public class Project {
 
 	private int id;
 	private String name;
 	private String description;
-	private Date startDate;
+	private LocalDate startDate;
 	private String status;
-	private String teamMembers;
+	private List<String> teamMembers;
 
 	// Default Constructor
 	public Project() {
 		super();
 	}
 
-	public Project(String name, String description, Date startDate, String status, String teamMembers) {
+	public Project(String name, String description, LocalDate startDate, String status, List<String> teamMembers) {
 		super();
 		this.id = 0;
 		this.name = name;
@@ -27,7 +28,7 @@ public class Project {
 	}
 
 	// Parameterized Constructor
-	public Project(int id, String name, String description, Date startDate, String status, String teamMembers) {
+	public Project(int id, String name, String description, LocalDate startDate, String status, List<String> teamMembers) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -62,11 +63,11 @@ public class Project {
 		this.description = description;
 	}
 
-	public Date getStartDate() {
+	public LocalDate getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(Date startDate) {
+	public void setStartDate(LocalDate startDate) {
 		this.startDate = startDate;
 	}
 
@@ -78,11 +79,11 @@ public class Project {
 		this.status = status;
 	}
 
-	public String getTeamMembers() {
+	public List<String> getTeamMembers() {
 		return teamMembers;
 	}
 
-	public void setTeamMembers(String teamMembers) {
+	public void setTeamMembers(List<String> teamMembers) {
 		this.teamMembers = teamMembers;
 	}
 

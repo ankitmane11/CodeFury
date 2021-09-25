@@ -4,12 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import com.app.beans.Project;
 
@@ -20,10 +19,27 @@ public class ProjectDaoImpl implements ProjectDao {
 		conn = DBUtil.getMyConnection();
 	}
 
+	public int generateId() {
+		PreparedStatement getIdsStatement;
+		int id = 0;
+		try {
+			getIdsStatement = conn.prepareStatement("Select projid from Project");
+			ResultSet rs = getIdsStatement.executeQuery();
+			while (rs.next()) {
+				if (id < rs.getInt(1))
+					id = rs.getInt(1);
+			}
+			id = id + 1;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return id;
+	}
+
 	public String getUserName(int id) {
 		PreparedStatement ps;
 		try {
-			ps = conn.prepareStatement("select Name from User where User_ID=?");
+			ps = conn.prepareStatement("select name from User where userid=?");
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
 			rs.next();
@@ -39,37 +55,35 @@ public class ProjectDaoImpl implements ProjectDao {
 
 	@Override
 	public void createProject(Project p, List<Integer> team) {
-		PreparedStatement ps, ps1;
+		PreparedStatement addToProjectStatement, addToTeamStatement;
+		String teamMembers = "";
 		try {
-			ps1 = conn.prepareStatement("insert into team values(?,?)");
-			ps = conn.prepareStatement("insert into project values(?,?,?,?,?,?)");
-			ResultSet rs1 = conn.prepareStatement("Select id from project").executeQuery();
-			int id = 0;
-			while (rs1.next()) {
-				if (id < rs1.getInt(1))
-					id = rs1.getInt(1);
-			}
-			ps.setInt(1, id+1);
-			ps.setString(2, p.getName());
-			ps.setString(3, p.getDescription());
-			java.sql.Date sdat = new java.sql.Date(p.getStartDate().getTime());
-			ps.setDate(4, sdat);
-			ps.setString(5, p.getStatus());
-			ps.setString(6, p.getTeamMembers());
-			int num = ps.executeUpdate();
+			addToTeamStatement = conn.prepareStatement("insert into team values(?,?)");
+			addToProjectStatement = conn.prepareStatement("insert into project values(?,?,?,?,?,?)");
+			int id = generateId();
+			addToProjectStatement.setInt(1, id);
+			addToProjectStatement.setString(2, p.getName());
+			addToProjectStatement.setString(3, p.getDescription());
+			addToProjectStatement.setDate(4, Date.valueOf(p.getStartDate()));
+			addToProjectStatement.setString(5, p.getStatus());
+			teamMembers = p.getTeamMembers().stream().map(Object::toString).collect(Collectors.joining(", "));
+			addToProjectStatement.setString(6, teamMembers);
+			int num = addToProjectStatement.executeUpdate();
 			if (num > 0) {
-				ps1.setInt(2, id+1);
+				addToTeamStatement.setInt(2, id);
 				for (int userId : team) {
-					ps1.setInt(1, userId);
-					int num1 = ps1.executeUpdate();
+					addToTeamStatement.setInt(1, userId);
+					int num1 = addToTeamStatement.executeUpdate();
 					if (num1 < 1) {
 						break;
 					}
 				}
 				conn.commit();
 			}
+			else {
+				conn.rollback();
+			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -78,7 +92,6 @@ public class ProjectDaoImpl implements ProjectDao {
 	@Override
 	public List<Project> getProjectList(int managerId) {
 		PreparedStatement ps, ps1;
-		DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		List<Project> pList = new ArrayList<Project>();
 		try {
 			ps = conn.prepareStatement("Select projid from team where userid=?");
@@ -90,19 +103,15 @@ public class ProjectDaoImpl implements ProjectDao {
 				System.out.println(rs.getInt(1));
 				ResultSet rs1 = ps1.executeQuery();
 				if (rs1.next()) {
-					String dt = rs1.getDate(4).toString();
-					Date date = sdf.parse(dt);
-					pList.add(new Project(rs1.getInt(1), rs1.getString(2), rs1.getString(3), date, rs1.getString(5), rs1.getString(6)));
+					List<String> teamMembers = Stream.of(rs1.getString(6).split(", ", -1)).collect(Collectors.toList());
+					pList.add(new Project(rs1.getInt(1), rs1.getString(2), rs1.getString(3),
+							rs1.getDate(4).toLocalDate(), rs1.getString(5), teamMembers));
 				}
 			}
 			return pList;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		} 
 		return null;
 	}
 

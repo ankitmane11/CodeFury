@@ -1,6 +1,6 @@
 let input = document.querySelector('input');
 let button = document.querySelector('button');
-
+console.log(button);
 sendJson = (json) => {
     xhr = new XMLHttpRequest();
     xhr.open('POST', "Servletlink", true);
@@ -11,6 +11,7 @@ sendJson = (json) => {
             document.getElementById("succ").innerHTML += xhr.responseText;
             return true;
         }
+		else return false;
 
     }
     //4. Send Request
@@ -52,8 +53,7 @@ validateJson = (json) => {
     else {
         if(err > 0)
             document.getElementById("succ").innerHTML = err+" entries did not match the format<br>"
-        sendJson(jlist);
-        return true;
+        return sendJson(jlist);
     }
 }
 

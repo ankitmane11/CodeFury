@@ -90,6 +90,7 @@ header nav .button{
     text-shadow: 1px 1px  #070606;
 
 }
+
 header nav .button:hover{
     filter: brightness(2);
 }

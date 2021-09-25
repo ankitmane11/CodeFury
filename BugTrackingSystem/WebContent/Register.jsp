@@ -30,8 +30,8 @@
 
 		<nav>
 			<li><span><a href="Import.jsp">Import</a></span></li>
-			<li><span><a href="Register.jsp">Register</a></span></li>
-			<li><span><a href="Login.jsp" class="button">Login</a></span></li>
+			<li><span><a href="Register.jsp" class="button">Register</a></span></li>
+			<li><span><a href="Login.jsp">Login</a></span></li>
 			<li><span><a href="home.html">Home</a></span></li>
 		</nav>
 	</div>
@@ -43,9 +43,9 @@
 	<div class="bg-image">
 		<form name="Login-form" onsubmit="return validateData()">
 
-			<div>
 				<table>
-					<h3 style="text-align: center">Please Enter Login Details</h3>
+					<h3 style="text-align: center">Please Enter Registration
+						Details</h3>
 					<br>
 					<tr>
 						<label>Username:</label>
@@ -69,14 +69,13 @@
 							<option value="Tester">Tester</option>
 						</select>
 					</tr>
-
 					<tr>
-						<button type="submit" value="login">Login</button>
+						<button type="submit" value="login">Register</button>
 
 						<div id="error"></div>
 					</tr>
 				</table>
-			</div>
+			
 		</form>
 	</div>
 
