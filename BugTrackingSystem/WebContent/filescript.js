@@ -2,11 +2,9 @@ let input = document.querySelector('input');
 let button = document.querySelector('button');
 
 sendJson = (json) => {
-    //1. Create Request
     xhr = new XMLHttpRequest();
-    //2. Generate Request
-    xhr.open('POST', "Servletlink?json=" + json, true);
-    //3. Configure Request
+    xhr.open('POST', "Servletlink", true);
+    xhr.setRequestHeader("Content-type", "application/json");
     xhr.onreadystatechange = function () {
         //alert("ready state" + xhr.readyState);
         if ((xhr.readyState == 4) && (xhr.status == 200)) {
@@ -16,7 +14,7 @@ sendJson = (json) => {
 
     }
     //4. Send Request
-    xhr.send();
+    xhr.send(json);
 }
 
 validateJson = (json) => {

@@ -1,9 +1,11 @@
 package com.app.test;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import com.app.beans.User;
-import com.app.exceptions.EmailAlreadyExistsException;
+import com.app.exceptions.EmailExistsException;
 import com.app.exceptions.UserNotRegisteredException;
 import com.app.service.UserService;
 import com.app.service.UserServiceImpl;
@@ -12,6 +14,10 @@ public class TestUser {
 
 	public static void main(String[] args) {
 		UserService uService = new UserServiceImpl();
+		List<User> uList = new ArrayList<>();
+		uList.add(new User("ABC", "Tester", "abc@domain.com"));
+		uList.add(new User("EFG", "Developer", "abc@domain.com"));
+		uList.add(new User("XYZ", "Tester", "xyz@domain.com"));
 		Scanner sc = new Scanner(System.in);
 		int choice = 0;
 		do {
@@ -23,8 +29,8 @@ public class TestUser {
 				// System.out.println("Enter File Name: ");
 				// String path = sc.next();
 				try {
-					uService.importUser("E:\\HTI Training\\CodeFury\\BugTrackingSystem\\WebContent\\json\\users.json");
-				} catch (EmailAlreadyExistsException e) {
+					uService.importUser(uList);
+				} catch (EmailExistsException e) {
 					System.out.println(e.getMessage());
 				}
 				break;
@@ -37,8 +43,10 @@ public class TestUser {
 				break;
 			case 3:
 				try {
-					User u = uService.userLogin("abc@domain.com", "xyz4321");
+					User u = uService.userLogin("xyz@domain.com", "abcd123");
 					System.out.println("Login Succesfull");
+					System.out.println(u);
+					choice = 4;
 				} catch (UserNotRegisteredException e) {
 					System.out.println(e.getMessage());
 				}

@@ -1,9 +1,11 @@
 package com.app.service;
 
+import java.util.List;
+
 import com.app.beans.User;
 import com.app.dao.UserDao;
 import com.app.dao.UserDaoImpl;
-import com.app.exceptions.EmailAlreadyExistsException;
+import com.app.exceptions.EmailExistsException;
 import com.app.exceptions.EmailAndTypeMismatchException;
 import com.app.exceptions.UserAlreadyRegisteredException;
 import com.app.exceptions.UserDoesNotExistException;
@@ -17,8 +19,8 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public void importUser(String path) throws EmailAlreadyExistsException {
-		uDao.importUser(path);
+	public void importUser(List<User> uList) throws EmailExistsException {
+		uDao.importUser(uList);
 	}
 
 	@Override

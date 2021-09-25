@@ -1,14 +1,16 @@
 package com.app.service;
 
+import java.util.List;
+
 import com.app.beans.User;
-import com.app.exceptions.EmailAlreadyExistsException;
+import com.app.exceptions.EmailExistsException;
 import com.app.exceptions.EmailAndTypeMismatchException;
 import com.app.exceptions.UserAlreadyRegisteredException;
 import com.app.exceptions.UserDoesNotExistException;
 import com.app.exceptions.UserNotRegisteredException;
 
 public interface UserService {
-	void importUser(String path) throws EmailAlreadyExistsException;
+	void importUser(List<User> uList) throws EmailExistsException;
 
 	void registerUser(String email, String type, String password) throws EmailAndTypeMismatchException, UserAlreadyRegisteredException, UserDoesNotExistException;
 

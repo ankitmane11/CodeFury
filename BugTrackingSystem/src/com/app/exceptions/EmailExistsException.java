@@ -1,25 +1,25 @@
 package com.app.exceptions;
 
-public class EmailAlreadyExistsException extends Exception {
+public class EmailExistsException extends Exception {
 
-	public EmailAlreadyExistsException() {
+	public EmailExistsException() {
 		super();
 	}
 
-	public EmailAlreadyExistsException(String message, Throwable cause, boolean enableSuppression,
+	public EmailExistsException(String message, Throwable cause, boolean enableSuppression,
 			boolean writableStackTrace) {
 		super(message, cause, enableSuppression, writableStackTrace);
 	}
 
-	public EmailAlreadyExistsException(String message, Throwable cause) {
+	public EmailExistsException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
-	public EmailAlreadyExistsException(String message) {
+	public EmailExistsException(String message) {
 		super(message);
 	}
 
-	public EmailAlreadyExistsException(Throwable cause) {
+	public EmailExistsException(Throwable cause) {
 		super(cause);
 	}
 
