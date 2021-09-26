@@ -2,6 +2,8 @@ package com.app.Tester;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,8 +13,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.app.beans.Bugs;
+import com.app.beans.Project;
 import com.app.beans.User;
+import com.app.exceptions.BugNotFoundException;
 import com.app.exceptions.UserNotRegisteredException;
+import com.app.service.BugService;
+import com.app.service.BugServiceImpl;
+import com.app.service.ProjectService;
+import com.app.service.ProjectServiceImpl;
 import com.app.service.UserService;
 import com.app.service.UserServiceImpl;
 
@@ -39,15 +48,20 @@ public class DisplayTester extends HttpServlet{
 			try
 			{
 				testeruser = userservice.userLogin(email, password);
-				buglist = bugservice.getBugsForTester(testeruser.id);
-				pList = projectservice.getProjectList(testeruser.id);
-			
+				try {
+					bugList = bugservice.getBugsForTester(testeruser.getId());
+				} catch (BugNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				pList = projectservice.getProjectList(testeruser.getId());
+				request.setAttribute("user", testeruser);
 			} catch (UserNotRegisteredException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			request.setAttribute("user", testeruser);
-			request.setAttribute("buglist", buglist);
+			
+			request.setAttribute("buglist", bugList);
 
 			RequestDispatcher rd=request.getRequestDispatcher("DisplayTester.jsp");
 			rd.forward(request, response);

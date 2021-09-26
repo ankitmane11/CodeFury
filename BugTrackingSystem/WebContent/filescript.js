@@ -3,7 +3,7 @@ let button = document.querySelector('button');
 console.log(button);
 sendJson = (json) => {
     xhr = new XMLHttpRequest();
-    xhr.open('POST', "Servletlink", true);
+    xhr.open('POST', "/importUser", true);
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.onreadystatechange = function () {
         //alert("ready state" + xhr.readyState);

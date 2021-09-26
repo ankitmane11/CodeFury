@@ -15,19 +15,17 @@
 		"email": "pm@domain.com"
 	},
 	{ 	
-		"name": "John Doe",
+		"name": "JohnDoe",
 		"type": "Developer",
 		"email": "johndoe@domain.com"
 	},	
-	
 	{ 	
-		"name": "Matthew Mart",
-		"type": "Project Manager",
+		"name": "MatthewMart",
+		"type": "ProjectManager",
 		"email": "mmart@domain.com"
 	},
-	
 	{ 	
-		"name": "Sarah Marshal",
+		"name": "SarahMarshal",
 		"type": "Tester",
 		"email": "sarah20@domain.com"
 	}

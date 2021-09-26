@@ -22,62 +22,50 @@ import com.app.service.UserServiceImpl;
 @WebServlet("/loginUser")
 public class LoginUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out=response.getWriter();
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		PrintWriter out = response.getWriter();
 		response.setContentType("text/html");
-		
-		String uname=request.getParameter("uname");
-		String email=request.getParameter("email");
-		String pass=request.getParameter("pass");
-		
+
+		String uname = request.getParameter("uname");
+		String email = request.getParameter("email");
+		String pass = request.getParameter("pass");
+
 		UserService uservice = new UserServiceImpl();
 		User user;
 		try {
-			user = uservice.userLogin(uname,pass);
-			
-			//creating session and setting attributes
+			user = uservice.userLogin(uname, pass);
+
+			// creating session and setting attributes
 			HttpSession session = request.getSession();
 			session.setAttribute("uname", uname);
 			session.setAttribute("email", email);
 			session.setAttribute("pass", pass);
 			session.setAttribute("type", user.getType());
 			session.setAttribute("id", user.getId());
-			
-			if(user.getType().equals("Project Manager")) {
-				RequestDispatcher rd=request.getRequestDispatcher("BTSMainPagePM.html");
+
+			if (user.getType().equals("Project Manager")) {
+				RequestDispatcher rd = request.getRequestDispatcher("mainmanager.jsp");
 				rd.forward(request, response);
-			}
-			else if(user.getType().equals("Developer")) {
-				RequestDispatcher rd=request.getRequestDispatcher("BTSMainPageDev.html");
+			} else if (user.getType().equals("Developer")) {
+				RequestDispatcher rd = request.getRequestDispatcher("DisplayDeveloper.jsp");
 				rd.forward(request, response);
-			}
-			else if(user.getType().equals("Tester")) {
-				RequestDispatcher rd=request.getRequestDispatcher("BTSMainPageTester.html");
+			} else if (user.getType().equals("Tester")) {
+				RequestDispatcher rd = request.getRequestDispatcher("DisplayTester.jsp");
 				rd.forward(request, response);
-			}
-			else {
-				out.println("<h1>No Role Assigned!!</h1>");
-				RequestDispatcher rd=request.getRequestDispatcher("login.html");
+			} else {
+				out.println("<h1>Please Re-enter Credentials!</h1>");
+				RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 				rd.include(request, response);
 			}
-			
+
 		} catch (UserNotRegisteredException e) {
 			out.println(e.getMessage());
-			RequestDispatcher rd=request.getRequestDispatcher("login.html");
+			RequestDispatcher rd = request.getRequestDispatcher("login.html");
 			rd.include(request, response);
 		}
-		
-//		if(user!=null){
-//			
-//			RequestDispatcher rd=request.getRequestDispatcher("BTSMainPage.html");
-//			rd.forward(request, response);
-//		}
-//		else {
-//			out.println("<h1>Please Re-enter Credentials!</h1>");
-//			RequestDispatcher rd=request.getRequestDispatcher("login.html");
-//			rd.include(request, response);
-//		}
-		
+
 		PrintWriter out1 = response.getWriter();
 		out.println("Login Done!!");
 		this.getServletContext().getRequestDispatcher("/users.jsp").include(request, response);
