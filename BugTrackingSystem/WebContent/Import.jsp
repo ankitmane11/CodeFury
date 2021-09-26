@@ -32,7 +32,7 @@
 			<li><span><a href="Import.jsp" class="button">Import</a></span></li>
 			<li><span><a href="Register.jsp">Register</a></span></li>
 			<li><span><a href="Login.jsp">Login</a></span></li>
-			<li><span><a href="home.html">Home</a></span></li>
+			<li><span><a href="home.jsp">Home</a></span></li>
 		</nav>
 	</div>
 </header>

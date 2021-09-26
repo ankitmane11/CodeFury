@@ -43,7 +43,7 @@
 				<li><span><a href="mainmanager.jsp" class="button">Manager
 							Home Page</a></span></li>
 				<li><span><a href="manager.jsp">Home</a></span></li>
-				<li><span ><a href="ProjectList.html">Add Project</a></span></li>
+				<li><span ><a href="ProjectList.jsp">Add Project</a></span></li>
 			</ul>
 
 			<!-- On the line above, remove the class="button" if you don't want the final
@@ -54,15 +54,15 @@
 <body>
 
 	<button type="button" value="Add"
-		onClick="javascript:window.location='userinfo.html';">USER
+		onClick="javascript:window.location='userinfo.jsp';">USER
 		INFO</button>
 	<br>
 	<button type="button" value="Add"
-		onClick="javascript:window.location='projectname.html';">PROJECT
+		onClick="javascript:window.location='projectname.jsp';">PROJECT
 		NAMES</button>
 	<br>
 	<button type="button" value="Add"
-		onClick="javascript:window.location='manager.html';">ADD
+		onClick="javascript:window.location='ProjectList.jsp';">ADD
 		PROJECT</button>
 	<br>
 </body>

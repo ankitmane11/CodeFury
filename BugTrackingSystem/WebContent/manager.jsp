@@ -1,6 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,7 +18,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-        <title>Home Page</title>
+        <title>Project Details</title>
         
 
         
@@ -81,11 +79,11 @@
                 <a> is the actual clickable part -->
                 
                   
-                    <li><span><a href="userinfo.html" >User Information</a></span></li>
-                <li><span><a href="projectname.html">Project Name</a></span></li>
-                <li><span><a href="mainmanager.html">Manager Home Page</a></span></li>
-                <li><span ><a href="manager.html" class="button">Home</a></span></li>
-                <li><span ><a href="ProjectList.html">Add Project</a></span></li>
+                    <li><span><a href="userinfo.jsp" >User Information</a></span></li>
+                <li><span><a href="projectname.jsp">Project Name</a></span></li>
+                <li><span><a href="mainmanager.jsp">Manager Home Page</a></span></li>
+                <li><span ><a href="manager.jsp" class="button">Project Details</a></span></li>
+                <li><span ><a href="ProjectList.jsp">Add Project</a></span></li>
             
             
                 
@@ -132,7 +130,7 @@
     </form>
     -->
     <div class="bg-image">
-        <table border="10px"style="margin-left:250px; margin-top:150px;">
+        <table border="10px"style="margin:10%"; margin:10%;">
             
             <tr>
                 <th style="padding:10px; font-size:20px ;">Project Name</th>
@@ -148,10 +146,19 @@
                 <td id="ProjectManger"style="padding:10px; font-size:40px ;">Test Values :</td>
                 <td id="Employeename" style="padding:10px; font-size:40px;">4</td>
                 <td id="Age"style="padding:10px; font-size:40px ;">Test Values :</td>
+        </tr>
+        <tr>
+        <td colspan="5" >
+        
+        <button type="button" value="Add" onClick="javascript:window.location='buginfo.jsp';">BUG DETAILS</button>
+        </td>
+        </tr>
+                </table>    
                 
-         
 
-        </table>
+			
+
+
     </div>
     </body>
 

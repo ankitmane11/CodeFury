@@ -97,11 +97,11 @@
                 <a> is the actual clickable part -->
                 
                   
-                <li><span><a href="userinfo.html" >User Information</a></span></li>
-                <li><span><a href="projectname.html">Project Name</a></span></li>
-                <li><span><a href="mainmanager.html">Manager Home Page</a></span></li>
-                <li><span ><a href="manager.html" >Home</a></span></li>
-                <li><span ><a href="ProjectList.html" class="button">Add Project</a></span></li>
+                <li><span><a href="userinfo.jsp" >User Information</a></span></li>
+                <li><span><a href="projectname.jsp">Project Name</a></span></li>
+                <li><span><a href="mainmanager.jsp">Manager Home Page</a></span></li>
+                <li><span ><a href="manager.jsp" >Home</a></span></li>
+                <li><span ><a href="ProjectList.jsp" class="button">Add Project</a></span></li>
             
                 
                 <!-- On the line above, remove the class="button" if you don't want the final
