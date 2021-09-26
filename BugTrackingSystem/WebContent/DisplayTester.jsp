@@ -52,11 +52,36 @@
 	<table>
 		<thead>
 			<tr>
-				<th>BugID</th>
+				<th>Bug Details</th>
 			</tr>
 			<% for(Bugs b:buglist){%>
 			<tr>
 				<td><%=b.getId() %></td>
+				<td><%=b.getOpenDate() %></td>
+				<td><%=b.getStatus() %></td>
+			</tr>
+			<%} %>
+		</thead>
+	</table>
+	<%
+	}
+	%>
+	
+	<%
+	List<Project> pList = (List<Project>) session.getAttribute("pList");
+	if (pList.size() > 0) {
+	%>
+	<table>
+		<thead>
+			<tr>
+				<th>Project Details</th>
+			</tr>
+			<% for(Project p:pList){%>
+			<tr>
+				<td><%=p.getName() %></td>
+				<td><%=p.getDescription() %></td>
+				<td><%=p.getStartDate() %></td>
+				<td><%=p.getStatus() %></td>
 			</tr>
 			<%} %>
 		</thead>

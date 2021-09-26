@@ -28,17 +28,19 @@ public class DisplayTester extends HttpServlet{
 		{
 			response.setContentType("text/html");
 			UserService userservice=new UserServiceImpl();
-			BugDao bugdao = new BugDaoImpl();
+			BugService bugservice = new BugServiceImpl();
+			ProjectService projectservice = new ProjectServiceImpl();
 			String email = request.getParameter("username");
 			String password = request.getParameter("email");
 
 			User testeruser;
 			List<Bugs> bugList = new ArrayList<>();
-
+			List<Project> pList = new ArrayList<Project>();
 			try
 			{
 				testeruser = userservice.userLogin(email, password);
-				buglist = bugdao.getBugsForTester(testeruser.id);
+				buglist = bugservice.getBugsForTester(testeruser.id);
+				pList = projectservice.getProjectList(testeruser.id);
 			
 			} catch (UserNotRegisteredException e) {
 				// TODO Auto-generated catch block

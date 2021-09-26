@@ -18,7 +18,7 @@ import com.app.service.UserServiceImpl;
 
 @WebServlet("/displayDeveloper")
 
-public class DisplayTester extends HttpServlet{
+public class DisplayDeveloper extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out=response.getWriter();
@@ -28,17 +28,19 @@ public class DisplayTester extends HttpServlet{
 		{
 			response.setContentType("text/html");
 			UserService userservice=new UserServiceImpl();
-			BugDao bugdao = new BugDaoImpl();
+			BugService bugservice = new BugServiceImpl();
+			ProjectService projectservice = new ProjectServiceImpl();
 			String email = request.getParameter("username");
 			String password = request.getParameter("email");
 
 			User developeruser;
 			List<Bugs> bugList = new ArrayList<>();
-
+			List<Project> pList = new ArrayList<Project>();
 			try
 			{
 				developeruser = userservice.userLogin(email, password);
-				buglist = bugdao.getBugsForDeveloper(developeruser.id);
+				buglist = bugservice.getBugsForDeveloper(developeruser.id);
+				pList = projectservice.getProjectList(developeruser.id);
 			
 			} catch (UserNotRegisteredException e) {
 				// TODO Auto-generated catch block
@@ -46,6 +48,7 @@ public class DisplayTester extends HttpServlet{
 			}
 			request.setAttribute("user", developeruser);
 			request.setAttribute("buglist", buglist);
+			request.setAttribute("pList", pList);
 
 			RequestDispatcher rd=request.getRequestDispatcher("DisplayDeveloper.jsp");
 			rd.forward(request, response);
