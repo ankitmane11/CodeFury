@@ -64,6 +64,6 @@
 	<%
 	}
 	%>
-	<!-- <a href=" ">Report new bug</a>  -->
+	<a href="AddBug.jsp ">Report new bug</a>
 </body>
 </html>

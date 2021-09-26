@@ -1,4 +1,4 @@
-package com.app.tester.controller;
+package com.app.Tester;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -47,7 +47,7 @@ public class DisplayTester extends HttpServlet{
 			request.setAttribute("user", testeruser);
 			request.setAttribute("buglist", buglist);
 
-			RequestDispatcher rd=request.getRequestDispatcher("displayTester.jsp");
+			RequestDispatcher rd=request.getRequestDispatcher("DisplayTester.jsp");
 			rd.forward(request, response);
 		}	
 }

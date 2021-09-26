@@ -1,4 +1,4 @@
-package com.app.tester.controller;
+package com.app.Tester;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -47,7 +47,7 @@ public class AddBugServlet extends HttpServlet{
 			}
 			
 			
-			RequestDispatcher rd=request.getRequestDispatcher("addBug.jsp");
+			RequestDispatcher rd=request.getRequestDispatcher("AddBug.jsp");
 			rd.forward(request, response);
 		}
 	}
