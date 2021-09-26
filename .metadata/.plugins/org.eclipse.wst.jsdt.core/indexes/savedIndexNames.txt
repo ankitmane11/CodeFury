@@ -1,7 +1,0 @@
-INDEX VERSION 1.4+I:\Bug Reporter\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-4290822187.index
-2850859881.index
-3137938787.index
-2916332545.index
-2772600435.index
-4001570021.index

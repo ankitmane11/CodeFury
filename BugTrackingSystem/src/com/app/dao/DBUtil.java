@@ -15,7 +15,7 @@ public class DBUtil {
 		if(conn==null) {
 			String url="jdbc:mysql://localhost:3306/codefury_db?useSSL=false";
 			String username="root";
-			String password="AstonX99";
+			String password="Gauri@2003";
 			DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
 			conn=DriverManager.getConnection(url,username,password);
 			conn.setAutoCommit(false);
