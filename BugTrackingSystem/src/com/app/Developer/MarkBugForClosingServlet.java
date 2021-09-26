@@ -34,7 +34,7 @@ public class MarkBugForClosingServlet extends HttpServlet{
 			bugservice.closeBug(id);
 			response.getWriter().write("Bug marked for closing");
 
-			RequestDispatcher rd=request.getRequestDispatcher("MarkBugForDeveloper.jsp");
+			RequestDispatcher rd=request.getRequestDispatcher("MarkBugForClosing.jsp");
 			rd.forward(request, response);
 		}	
 	}
