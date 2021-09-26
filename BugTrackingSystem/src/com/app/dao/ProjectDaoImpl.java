@@ -79,8 +79,7 @@ public class ProjectDaoImpl implements ProjectDao {
 					}
 				}
 				conn.commit();
-			}
-			else {
+			} else {
 				conn.rollback();
 			}
 		} catch (SQLException e) {
@@ -91,27 +90,23 @@ public class ProjectDaoImpl implements ProjectDao {
 
 	@Override
 	public List<Project> getProjectList(int managerId) {
-		PreparedStatement ps, ps1;
+		PreparedStatement getProjectDetailsStatement;
 		List<Project> pList = new ArrayList<Project>();
 		try {
-			ps = conn.prepareStatement("Select projid from team where userid=?");
-			ps1 = conn.prepareStatement("Select * from project where id=?");
-			ps.setInt(1, managerId);
-			ResultSet rs = ps.executeQuery();
+			getProjectDetailsStatement = conn.prepareStatement(
+					"Select * from Project where projid in (Select projid from team where userid=?);");
+			getProjectDetailsStatement.setInt(1, managerId);
+			ResultSet rs = getProjectDetailsStatement.executeQuery();
 			while (rs.next()) {
-				ps1.setInt(1, rs.getInt(1));
-				System.out.println(rs.getInt(1));
-				ResultSet rs1 = ps1.executeQuery();
-				if (rs1.next()) {
-					List<String> teamMembers = Stream.of(rs1.getString(6).split(", ", -1)).collect(Collectors.toList());
-					pList.add(new Project(rs1.getInt(1), rs1.getString(2), rs1.getString(3),
-							rs1.getDate(4).toLocalDate(), rs1.getString(5), teamMembers));
-				}
+				List<String> teamMembers = Stream.of(rs.getString(6).split(", ", -1)).collect(Collectors.toList());
+				pList.add(new Project(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDate(4).toLocalDate(),
+						rs.getString(5), teamMembers));
+
 			}
 			return pList;
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} 
+		}
 		return null;
 	}
 

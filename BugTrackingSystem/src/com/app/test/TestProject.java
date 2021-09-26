@@ -2,6 +2,7 @@ package com.app.test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -18,7 +19,7 @@ public class TestProject {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
 		int choice = 0;
 		do {
-			System.out.println("1. Create Project\n2. Get Project List\n3. Get Project Details");
+			System.out.println("1. Create Project\n2. Get Project List");
 			System.out.println("Choice: ");
 			choice = sc.nextInt();
 			switch (choice) {
@@ -27,25 +28,15 @@ public class TestProject {
 				team.add(1);
 				team.add(2);
 				team.add(3);
-				Date date;
-				try {
-					date = sdf.parse("20/09/2021");
-					String str = "This is the description of the project";
-					pService.createProject("Bug Tracker", str, date, "In Progress", team);
-				} catch (ParseException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				LocalDate date = LocalDate.of(2021, 9, 21);
+				String str = "This is the description of the project";
+				pService.createProject("Bug Tracker", str, date, "In Progress", team);
 				break;
 			case 2:
 				List<Project> pList = pService.getProjectList(2);
-				System.out.println(pList.size());
-				for (Project p : pList) {					
+				for (Project p : pList) {
 					System.out.println(p);
 				}
-				break;
-			case 3:
-				pService.getProjectDetails(1);
 				break;
 			case 4:
 				break;

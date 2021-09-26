@@ -1,5 +1,6 @@
 package com.app.beans;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Bugs {
@@ -9,11 +10,11 @@ public class Bugs {
 	private String description;
 	private int projectId;
 	private int createdBy;
-	private Date openDate;
+	private LocalDate openDate;
 	private int assignedTo;
 	private Boolean markedForClosing;
 	private int closedBy;
-	private Date closedOn;
+	private LocalDate closedOn;
 	private String status;
 	private String severityLevel;
 
@@ -24,13 +25,13 @@ public class Bugs {
 	}
 
 	// Parameterized Constructor for adding
-	public Bugs(String title, String description, int projectId, int createdBy, Date openDate,
+	public Bugs(String title, String description, int createdBy, LocalDate openDate,
 			String severityLevel) {
 		super();
 		this.id = 0;
 		this.title = title;
 		this.description = description;
-		this.projectId = projectId;
+		this.projectId = 0;
 		this.createdBy = createdBy;
 		this.openDate = openDate;
 		this.severityLevel = severityLevel;
@@ -42,8 +43,8 @@ public class Bugs {
 	}
 
 	//
-	public Bugs(int id, String title, String description, int projectId, int createdBy, Date openDate, int assignedTo,
-			Boolean markedForClosing, int closedBy, Date closedOn, String status, String severityLevel) {
+	public Bugs(int id, String title, String description, int projectId, int createdBy, LocalDate openDate, int assignedTo,
+			Boolean markedForClosing, int closedBy, LocalDate closedOn, String status, String severityLevel) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -100,11 +101,11 @@ public class Bugs {
 		this.createdBy = createdBy;
 	}
 
-	public Date getOpenDate() {
+	public LocalDate getOpenDate() {
 		return openDate;
 	}
 
-	public void setOpenDate(Date openDate) {
+	public void setOpenDate(LocalDate openDate) {
 		this.openDate = openDate;
 	}
 
@@ -132,11 +133,11 @@ public class Bugs {
 		this.closedBy = closedBy;
 	}
 
-	public Date getClosedOn() {
+	public LocalDate getClosedOn() {
 		return closedOn;
 	}
 
-	public void setClosedOn(Date closedOn) {
+	public void setClosedOn(LocalDate closedOn) {
 		this.closedOn = closedOn;
 	}
 
@@ -156,4 +157,12 @@ public class Bugs {
 		this.severityLevel = severityLevel;
 	}
 
+	@Override
+	public String toString() {
+		return "Bugs [id=" + id + ", title=" + title + ", description=" + description + ", projectId=" + projectId
+				+ ", createdBy=" + createdBy + ", openDate=" + openDate + ", assignedTo=" + assignedTo
+				+ ", markedForClosing=" + markedForClosing + ", closedBy=" + closedBy + ", closedOn=" + closedOn
+				+ ", status=" + status + ", severityLevel=" + severityLevel + "]";
+	}
+	
 }
