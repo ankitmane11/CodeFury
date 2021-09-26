@@ -1,0 +1,7 @@
+/BugNotAddedException.class
+/BugNotFoundException.class
+/EmailAndTypeMismatchException.class
+/EmailExistsException.class
+/UserAlreadyRegisteredException.class
+/UserDoesNotExistException.class
+/UserNotRegisteredException.class

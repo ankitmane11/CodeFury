@@ -1,0 +1,97 @@
+/* Default styles for the browser */
+@import url(https://fonts.googleapis.com/css?family=Exo:100,200,400);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+
+header{ 
+    width: 100vw;
+    height: 80px;
+    border-bottom: solid 5px rgb(0, 0, 0);
+    font-family: 'Exo', sans-serif;
+    color:#fff;
+    background-color: rgb(0, 0, 0);
+    text-shadow: 20px #6d3d3d;
+}
+
+header .inner{
+    width: 1300px; /* This is the inner width of the content inside of your header (80%, etc) */
+    height: 75%;
+    display: block;
+    margin: 0 auto;
+    font-size: 45px; 
+    
+}
+
+header .logo{
+    display: table;
+    height: 130%;
+    float: left;
+    font-size: 25px;
+    
+}
+
+header .logo div{
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+header .logo img{
+    height: 100px;
+    margin-top: 0px; /* Optical alignment of the logo */
+}
+header nav{
+    float: right;
+    height: 100%;
+}
+
+header nav li{
+    
+    display: table;
+    height: 10%;
+    float: left;
+    margin-right: 20px;
+    
+}
+
+header nav li:last-of-type{
+    margin-top: 0;
+    margin-right: 0;
+}
+
+header nav span {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+header nav a{
+    color: whitesmoke;
+    font-size: 20px;
+    text-shadow: 1px 1px 1px #ece9e9;
+}
+/*Will change color of LOGIN IMPORT REGISTRATION WHEN HOVER*/
+header nav a:hover{
+    color:blue;
+    font-weight:bold;
+    
+}
+
+header nav .button{
+    background-color: whitesmoke; /* This HEX is the color of the button */
+    color: black;
+    padding: 8px 18px;
+    border-radius: 8px;
+    text-shadow: 1px 1px  #070606;
+
+}
+
+header nav .button:hover{
+    filter: brightness(2);
+}
+    
